@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cafe Menu</title>
+    <link href="styles.css" rel="stylesheet"/>
+  </head>
+  <body>
+    <!-- 语言切换按钮 -->
+    <button id="lang-switcher">中文</button>
+    <div class="menu">
+      <main>
+        <h1 data-lang="CAMPER CAFE|露营者咖啡馆">CAMPER CAFE</h1>
+        <p class="established" data-lang="Est. 2020|创建于2020年">Est. 2020</p>
+        <hr>
+        <section>
+          <h2 data-lang="Coffee|咖啡">Coffee</h2>
+          <img src="https://cdn.freecodecamp.org/curriculum/css-cafe/coffee.jpg" alt="coffee icon"/>
+          <article class="item">
+            <p class="flavor" data-lang="French Vanilla|法式香草">French Vanilla</p><p class="price">3.00&yen;</p>
+          </article>
+          <article class="item">
+            <p class="flavor" data-lang="Caramel Macchiato|焦糖玛奇朵">Caramel Macchiato</p><p class="price">3.75&yen;</p>
+          </article>
+          <article class="item">
+            <p class="flavor" data-lang="Pumpkin Spice|南瓜香料">Pumpkin Spice</p><p class="price">3.50&yen;</p>
+          </article>
+          <article class="item">
+            <p class="flavor" data-lang="Hazelnut|榛果">Hazelnut</p><p class="price">4.00&yen;</p>
+          </article>
+          <article class="item">
+            <p class="flavor" data-lang="Mocha|摩卡">Mocha</p><p class="price">4.50&yen;</p>
+          </article>
+        </section>
+        <section>
+          <h2 data-lang="Desserts|甜点">Desserts</h2>
+          <img src="https://cdn.freecodecamp.org/curriculum/css-cafe/pie.jpg" alt="pie icon"/>
+          <article class="item">
+            <p class="dessert" data-lang="Donut|甜甜圈">Donut</p><p class="price">1.50&yen;</p>
+          </article>
+          <article class="item">
+            <p class="dessert" data-lang="Cherry Pie|樱桃派">Cherry Pie</p><p class="price">2.75&yen;</p>
+          </article>
+          <article class="item">
+            <p class="dessert" data-lang="Cheesecake|芝士蛋糕">Cheesecake</p><p class="price">3.00&yen;</p>
+          </article>
+          <article class="item">
+            <p class="dessert" data-lang="Cinnamon Roll|肉桂卷">Cinnamon Roll</p><p class="price">2.50&yen;</p>
+          </article>
+        </section>
+      </main>
+      <hr class="bottom-line">
+      <footer>
+        <p>
+          <a href="http://lijiaji.top/" target="_blank" style="text-decoration: none;">个人在线简历</a>
+        </p>
+      </footer>
+    </div>
+    <script>
+      const langSwitcher = document.getElementById('lang-switcher');
+      let isEnglish = true;
+
+      langSwitcher.addEventListener('click', function() {
+        isEnglish = !isEnglish;
+        const elements = document.querySelectorAll('[data-lang]');
+        elements.forEach(function(element) {
+          const [english, chinese] = element.getAttribute('data-lang').split('|');
+          element.textContent = isEnglish ? english : chinese;
+        });
+        langSwitcher.textContent = isEnglish ? '中文' : 'English';
+      });
+    </script>
+  </body>
+</html>
